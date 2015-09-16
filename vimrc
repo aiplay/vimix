@@ -103,22 +103,27 @@ function! WrapForTmux(s)
     if !exists('$TMUX')
         return a:s
     endif
-
     let tmux_start = "\<Esc>Ptmux;"
     let tmux_end = "\<Esc>\\"
-
     return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
 endfunction
-
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
 let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
 function! XTermPasteBegin()
     set pastetoggle=<Esc>[201~
     set paste
     return "
 endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()]"]])]")
+
+" 兼容tmux模式的cursor变换
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
 
 
@@ -423,8 +428,8 @@ nnoremap <leader>v V`}
 " 强制保存
 cmap w!! w !sudo tee >/dev/null %
 
-" ff 替换 Esc
-inoremap ff <Esc>
+" kj 替换 Esc
+inoremap kj <Esc>
 
 " 滚动急速
 nnoremap <C-e> 2<C-e>
@@ -486,7 +491,7 @@ endfunc
 if has("autocmd")
   " Highlight TODO, FIXME, NOTE, etc.
   if v:version > 701
-    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|XXX\|BUG\|HACK\)')
+    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
     autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
   endif
 endif
