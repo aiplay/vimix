@@ -2,6 +2,10 @@
 
 参考 [k-vim](https://github.com/wklken/k-vim)
 
+### 安装
+
+运行 __./install.sh__ 即可，如需缩短安装插件的时间，可以注释掉vimrc.bundles中相关耗时插件的行，如 _Bundle 'Valloric/YouCompleteMe'_
+
 ### 快捷键
 
 	逗号 , 表示 <leader>
