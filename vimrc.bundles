@@ -15,7 +15,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " 使用vim查看man手册
-Plugin 'bruno-/vim-man'
+Plugin 'vim-utils/vim-man'
 
 " 快速切换头文件与源文件 A
 Plugin 'a.vim'
@@ -232,13 +232,10 @@ nnoremap <leader>ge :Gdiff<CR>
 " 同git diff,实时展示文件中修改的行
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0
-let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 1
 let g:gitgutter_highlight_lines = 1
-nnoremap <leader>gs :GitGutterToggle<CR>
 
-" 查看操作历史状态
-Bundle 'sjl/gundo.vim'
-noremap <leader>h :GundoToggle<CR>
+nnoremap <leader>gs :GitGutterToggle<CR>
 
 
 
@@ -362,6 +359,3 @@ Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'lua.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-lua-ftplugin'
-
-" JSON高亮
-Plugin 'elzr/vim-json'
