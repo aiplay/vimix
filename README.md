@@ -2,7 +2,7 @@
 
  参考 [k-vim](https://github.com/wklken/k-vim)
 
- __逗号 , 表示<leader\>__
+ __逗号 , 表示<leader>__
 
 ### 快捷键
 
@@ -49,6 +49,8 @@
  	<leader>v  选中段落
 
  	ctrl-n     切换相对/绝对行号
+
+---
 
 ### 插件介绍
 
@@ -190,3 +192,5 @@
 	[vim-misc](https://github.com/xolox/vim-misc)
 
 	[vim-lua-ftplugin](https://github.com/xolox/vim-lua-ftplugin)
+
+---
