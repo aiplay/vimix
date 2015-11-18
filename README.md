@@ -1,8 +1,8 @@
 # vimix
 
- 参考 [k-vim](https://github.com/wklken/k-vim)
+参考 [k-vim](https://github.com/wklken/k-vim)
 
- __逗号 , 表示 <leader\> __
+逗号 , 表示 <leader\>
 
 ### 快捷键
 
