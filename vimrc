@@ -153,7 +153,7 @@ set laststatus=2
 set number
 
 " 取消换行。
-set nowrap
+" set nowrap
 
 " 括号配对情况,跳转并高亮一下匹配的括号
 set showmatch
@@ -298,10 +298,18 @@ nnoremap gk k
 nnoremap j gj
 nnoremap gj j
 
-" F1 废弃这个键,防止调出系统帮助
-noremap <F1> <Esc>"
+" F5 粘贴模式paste_mode开关,用于有格式的代码粘贴
+set pastetoggle=<F5>
+" 离开插入模式后关闭粘贴模式
+au InsertLeave * set nopaste
 
-" 用<F2>开启/关闭行号显示:
+" F6 换行开关
+nnoremap <F6> :set wrap! wrap?<CR>
+
+" F7 语法开关，关闭语法可以加快大文件的展示
+nnoremap <F7> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+
+" 用<F8>开启/关闭行号显示:
 function! HideNumber()
   if(&relativenumber == &number)
     set relativenumber! number!
@@ -312,21 +320,7 @@ function! HideNumber()
   endif
   set number?
 endfunc
-nnoremap <F2> :call HideNumber()<CR>
-
-" F3 显示可打印字符开关
-nnoremap <F3> :set list! list?<CR>
-
-" F4 换行开关
-nnoremap <F4> :set wrap! wrap?<CR>
-
-" F5 粘贴模式paste_mode开关,用于有格式的代码粘贴
-set pastetoggle=<F5>
-" 离开插入模式后关闭粘贴模式
-au InsertLeave * set nopaste
-
-" F6 语法开关，关闭语法可以加快大文件的展示
-nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+nnoremap <F8> :call HideNumber()<CR>
 
 " 分屏窗口移动
 map <C-j> <C-W>j
