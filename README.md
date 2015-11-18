@@ -2,9 +2,9 @@
 
 参考 [k-vim](https://github.com/wklken/k-vim)
 
-逗号 , 表示 <leader\>
-
 ### 快捷键
+
+	逗号 , 表示 <leader>
 
 关闭方向键移动光标，强制使用hjkl
 
