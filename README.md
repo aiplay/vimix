@@ -2,7 +2,7 @@
 
  参考 [k-vim](https://github.com/wklken/k-vim)
 
- __逗号 , 表示<leader>__
+ __逗号 , 表示 <leader\> __
 
 ### 快捷键
 
