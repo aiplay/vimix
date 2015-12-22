@@ -512,9 +512,12 @@ if has("gui_running")
 endif
 
 " 设置molokai主题
+" set background=dark
+" set t_Co=256
+" colorscheme molokai
+" 设置solarized主题
 set background=dark
-set t_Co=256
-colorscheme molokai
+colorscheme solarized
 
 " 设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
