@@ -178,6 +178,10 @@ map <Leader><Leader>k <Plug>(easymotion-k)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 map <Leader><leader>. <Plug>(easymotion-repeat)
 
+" 行内高效移动
+Bundle 'unblevable/quick-scope'
+let g:qs_highlight_on_keys = ['f', 'F']
+
 Bundle 'vim-scripts/matchit.zip'
 
 " 显示marks - 方便自己进行标记和跳转
@@ -233,7 +237,7 @@ nnoremap <leader>ge :Gdiff<CR>
 " 同git diff,实时展示文件中修改的行
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0
-let g:gitgutter_enabled = 1
+let g:gitgutter_enabled = 0
 let g:gitgutter_highlight_lines = 1
 
 nnoremap <leader>gs :GitGutterToggle<CR>

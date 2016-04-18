@@ -109,12 +109,13 @@ function! WrapForTmux(s)
 endfunction
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
 let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
 function! XTermPasteBegin()
     set pastetoggle=<Esc>[201~
     set paste
-    return "
+    return ""
 endfunction
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()]"]])]")
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " 兼容tmux模式的cursor变换
 if exists('$TMUX')
@@ -412,6 +413,9 @@ vnoremap > >gv
 
 " 复制到行尾
 map Y y$
+
+" 复制选中区到系统剪切板中
+vnoremap <leader>y "+y
 
 " 选择所有文本
 map <Leader>sa ggVG"
